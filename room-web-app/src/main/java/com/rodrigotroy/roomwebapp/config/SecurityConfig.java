@@ -37,15 +37,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /*@Autowired
-    public void configurationGlobal(AuthenticationManagerBuilder auth) throws
-                                                                       Exception {
-        auth.inMemoryAuthentication()
-            .passwordEncoder(NoOpPasswordEncoder.getInstance())
-            .withUser("user")
-            .password("password");
-    }*/
-
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -57,5 +48,4 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
-
 }
